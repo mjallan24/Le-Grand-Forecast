@@ -37,10 +37,10 @@ def to_category(raw_metar, hour):
     Inputs: (string)    raw metar data
             (int)       hour pulled from timestamp object
     
-    Output: (string)      categorical term for cloud cover
+    Output: (string)    categorical term for cloud cover
     """
     if not raw_metar or type(raw_metar) != str:
-        return "Error! Metar data unavailable!"
+        return np.nan
     else:
 
         if any(elem in raw_metar for elem in ["SKC", "CLR"]):
@@ -54,4 +54,4 @@ def to_category(raw_metar, hour):
         elif "OVC" in raw_metar:
             return "overcast"
         else:
-            return "Oops!"
+            return np.nan
