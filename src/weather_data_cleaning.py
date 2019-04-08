@@ -3,11 +3,12 @@ import numpy as np
 import datetime
 
 def load_data(file):
-    df = pd.read_csv('file')
-    df = find_nan_columns(df)
+    df = pd.read_csv(file)
 
     # Rename relevant columns to more readable names
     df.rename(columns = {'tmpf': 'temp', 'p01i': 'precip', 'dwpf': 'dew_temp', 'relh': 'humidity'})
+
+    df = find_nan_columns(df)
 
     df['clouds'] = [to_category(df['metar'][i], df['valid'][i].hour) for i in range(len(df))]
 
