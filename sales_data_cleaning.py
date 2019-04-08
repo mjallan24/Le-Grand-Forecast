@@ -58,16 +58,3 @@ def load_dataframe(file):
     df_final['grand_total'][1523] = (12982*1.1)
     df_final['lunch_total'][1523] = (1936*1.1)
     df_final['dinner_total'][1523] = (11046*1.1)
-
-    df_final = df_final.join(df3['month'])
-    df_final = df_final.join(df3['day_of_week'])
-
-    # Creates previous day's sales for grand total, lunch and dinner
-    prev_dinner = [df_final['grand_total'][i-1] for i in range(1,len(df_final))]
-    df_final['prev_day_grand'] = [0] + prev_dinner
-
-    prev_lunch = [df_final['lunch_total'][i-1] for i in range(1,len(df_final))]
-    df_final['prev_day_lunch'] = [0] + prev_lunch
-
-    prev_dinner = [df_final['dinner_total'][i-1] for i in range(1,len(df_final))]
-    df_final['prev_day_dinner'] = [0] + prev_dinner
