@@ -14,6 +14,7 @@ def load_data(file):
 
     df = df.rename(columns = {'tmpf': 'temp', 'p01i': 'precip', 'dwpf': 'dew_temp', 'relh': 'humidity'})
 
+    # Following four functions pull temperature and cloud coverage for lunch and dinner.
     lunch_temp = []
     dates_lunch = []
     for i in range(len(df)):
@@ -50,7 +51,7 @@ def load_data(file):
             dinner_cat.append(((df['cloud_cover'][i]),str(df['valid'][i].date())))
             dates_dinner.append(str(df['valid'][i].date()))
 
-
+    # Converts the arrays to dataframes.
     lunch_temp = pd.DataFrame(lunch_temp)
     lunch_temp.columns = ['lunch_temp', 'create_time']
 
@@ -79,6 +80,7 @@ def load_data(file):
 
     new_df = pd.concat([lunch_temp, dinner_temp, lunch_cat, dinner_cat], axis=1)
     return new_df
+
 
 def to_category(raw_metar, hour):
 

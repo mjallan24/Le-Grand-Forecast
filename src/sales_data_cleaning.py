@@ -13,7 +13,7 @@ def load_dataframe(file):
     df.columns = ['grand_total', 'create_time', 'close_time']
 
     # Removing the irrelevant rows resulting from read_fwf conversion
-    df =df[2:155924]
+    df = df[2:155924]
 
     # Cleaning data for one timestamp and total
     df = df.reset_index().drop('index', axis=1)
@@ -51,16 +51,16 @@ def load_dataframe(file):
 
     df['create_time'] = pd.to_datetime(df['create_time'])
 
-    df_final = df.resample('D', on='create_time').sum()
-    df_final.drop(labels='lunch', axis=1, inplace=True)
-    df_final = df_final.reset_index()
+    df = df.resample('D', on='create_time').sum()
+    df.drop(labels='lunch', axis=1, inplace=True)
+    df = df.reset_index()
 
 
     # Fixes a specific date where data was inputted incorrectly. 
     # Contacted the owner for the actual values. 
-    df_final['create_time'] = pd.to_datetime(df_final['create_time'])
-    df_final['grand_total'][1523] = (14280.2)
-    df_final['lunch_total'][1523] = (2129.6)
-    df_final['dinner_total'][1523] = (12150.6)
+    df['create_time'] = pd.to_datetime(df['create_time'])
+    df['grand_total'][1523] = (14280.2)
+    df['lunch_total'][1523] = (2129.6)
+    df['dinner_total'][1523] = (12150.6)
 
-    return df_final
+    return df
