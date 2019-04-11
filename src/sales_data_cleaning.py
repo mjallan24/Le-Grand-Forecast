@@ -8,7 +8,7 @@ def load_dataframe(file):
     """
     Takes a SQL generated text or csv file and converts it to a pandas dataframe for regression
     """
-    df = pd.read_fwf('Le-Grand-Forecast/data/LeGrand2.csv')
+    df = pd.read_fwf(file)
     df = df.reset_index()
     df.columns = ['grand_total', 'create_time', 'close_time']
 
