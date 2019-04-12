@@ -31,7 +31,7 @@ df_final = df_final.drop(labels=['dinner_None', 'lunch_None'], axis=1)
 # Facebook Prophet Time Series
 
 # Lunch Analysis
-df_fb_lunch = df_final.loc[:,['create_time', 'dinner_total']]
+df_fb_lunch = df_final.loc[:,['create_time', 'lunch_total']]
 df_fb_lunch['create_time'] = pd.to_datetime(df_fb_lunch['create_time'])
 m = Prophet(seasonality_mode='multiplicative')
 m.add_country_holidays(country_name='US')
