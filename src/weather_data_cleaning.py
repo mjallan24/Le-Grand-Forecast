@@ -81,7 +81,6 @@ def load_data(file):
     new_df = pd.concat([lunch_temp, dinner_temp, lunch_cat, dinner_cat], axis=1)
     return new_df
 
-
 def to_category(raw_metar, hour):
 
     """
