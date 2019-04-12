@@ -27,5 +27,5 @@ Metar data was collected from Seattle's Boeing Airfield via Iowa State Universit
 
 Facebook Prophet is a open source time-series analysis tool which utilizes a Generalized Additive Model (GAM). By breaking the historical sales numbers up into a linear trend, seasonality smoothing, and controlling for holiday influence it can better predict daily values. This allows the model to forecast into the future based on the results it has seen from the past. 
 
-data/dinner-forecast.png
+[Dinner Forecast Model](data/dinner-forecast.png)
 
